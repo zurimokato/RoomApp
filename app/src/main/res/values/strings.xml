@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">RoomApp</string>
+    <string name="todo">todo</string>
+    <string name="price_room">$ 4.0</string>
+    <string name="standard">Estandar Cama Doble</string>
+    <string name="area">16mxn</string>
+    <string name="typebed">Cama Doble</string>
+    <string name="detail">Lorem ipsum dolor sit amet consectetur adipiscing elit vehicula senectus tellus, vestibulum auctor lacinia ac
+        nullam tincidunt mattis penatibus montes dictumst arcu, nisi elementum pulvinar primis convallis parturient vel
+        ornare justo. A urna sociis faucibus hendrerit phasellus mus maecenas risus posuere commodo, curabitur nunc
+        quam venenatis cras eleifend dis praesent.</string>
+    <string name="detalle">Detalle</string>
+</resources>
