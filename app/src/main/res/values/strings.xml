@@ -10,4 +10,6 @@
         ornare justo. A urna sociis faucibus hendrerit phasellus mus maecenas risus posuere commodo, curabitur nunc
         quam venenatis cras eleifend dis praesent.</string>
     <string name="detalle">Detalle</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="reservar">Reservar</string>
 </resources>
