@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="270dp"
+    app:cardBackgroundColor="@color/colorTextWhite"
+    app:cardCornerRadius="4dp"
+    android:layout_marginTop="6dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/titleRoomCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/standard"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:textSize="18sp"
+            android:textColor="#212121"
+            />
+        <android.support.v7.widget.CardView
+            android:id="@+id/cardI"
+            android:layout_below="@id/titleRoomCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
+            app:cardCornerRadius="4dp">
+            <ImageView
+                android:id="@+id/cardimagen"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_below="@id/titleRoomCard"
+                android:src="@drawable/room"
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/todo" />
+
+        </android.support.v7.widget.CardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/CardPriceRoom"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_below="@id/cardI"
+            android:text="@string/price_room"
+            android:textSize="18sp"
+            android:layout_marginBottom="12dp"
+            android:textColor="#212121"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@id/CardPriceRoom"
+            android:layout_below="@id/cardI"
+            android:text="@string/por_noche"
+            android:textSize="15sp"
+            android:layout_marginBottom="12dp"
+            android:textColor="#212121"/>
+        <RatingBar
+            android:id="@+id/cardRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Base.Widget.AppCompat.RatingBar.Small"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@id/CardPriceRoom"
+            android:layout_marginEnd="20dp"
+            android:rating="4"
+            android:numStars="5"
+            android:layout_marginBottom="12dp"
+
+            />
+
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
+

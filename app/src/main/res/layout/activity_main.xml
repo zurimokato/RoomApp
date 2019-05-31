@@ -1,152 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
-    <RelativeLayout
+    android:layout_height="wrap_content"
+    tools:context=".MainActivity">
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recicleRoom"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:context=".MainActivity">
-
-
-        <android.support.v7.widget.CardView
-            android:id="@+id/cardRoom"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginTop="15dp"
-            app:cardElevation="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="4dp">
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <android.support.v7.widget.CardView
-                    android:id="@+id/cardImage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:cardCornerRadius="5dp">
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="240dp"
-                        android:src="@drawable/room"
-                        android:scaleType="centerCrop"
-                        android:contentDescription="@string/todo" />
-
-                </android.support.v7.widget.CardView>
-                <TextView
-                    android:id="@+id/roomTittle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/standard"
-                    android:layout_below="@id/cardImage"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="15dp"
-                    android:textSize="20sp"
-                    android:textColor="#212121"/>
-                <TextView
-                    android:id="@+id/price_room"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/price_room"
-                    android:layout_marginEnd="10dp"
-                    android:layout_below="@id/cardImage"
-                    android:layout_alignEnd="@id/cardImage"
-                    android:layout_alignTop="@id/roomTittle"
-                    android:textSize="20sp"
-                    />
-                <LinearLayout
-                    android:id="@+id/roomDetail"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/roomTittle"
-                    android:layout_marginTop="10dp"
-                    android:layout_alignEnd="@id/price_room"
-                    android:layout_alignStart="@id/roomTittle"
-                    android:orientation="horizontal">
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_check_box"
-                        android:contentDescription="@string/todo" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:text="@string/area"/>
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="30dp"
-                        android:src="@drawable/bed"
-                        android:contentDescription="@string/todo"/>
-                    <TextView
-                        android:id="@+id/message"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/typebed"
-                        android:layout_marginStart="8dp"/>
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/detail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/roomDetail"
-                    android:text="@string/detalle"
-                    android:textColorHint="@color/colorAmber"
-                    android:layout_alignStart="@id/roomTittle"
-                    android:layout_marginTop="10dp"
-                    android:textColor="#212121"
-                    android:textSize="20sp"
-                    />
-                <RatingBar
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:numStars="5"
-                    style="@style/Base.Widget.AppCompat.RatingBar.Small"
-                    android:layout_toEndOf="@id/detail"
-                    android:layout_alignTop="@id/detail"
-                    android:layout_marginStart="150dp"
-                    android:rating="4"
-                    />
-                <TextView
-                    android:id="@+id/roomTextDetail"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:padding="5dp"
-                    android:layout_below="@id/detail"
-                    android:layout_alignEnd="@id/price_room"
-                    android:layout_alignStart="@id/roomTittle"
-                    android:textSize="15sp"
-                    android:textAlignment="gravity"
-                    android:text="@string/detail"/>
-
-            </RelativeLayout>
-
-        </android.support.v7.widget.CardView>
-
-
-        <Button
-            android:id="@+id/reservar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/cardRoom"
-            android:layout_alignStart="@id/cardRoom"
-            android:layout_alignEnd="@id/cardRoom"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="15dp"
-            android:background="@drawable/botondesign"
-            android:text="@string/reservar"
-            android:textColor="@color/colorTextWhite"
-            />
+        android:layout_height="match_parent"
+        android:background="@color/fondoList"/>
 
 
 
-    </RelativeLayout>
-</ScrollView>
+</RelativeLayout>
+

@@ -8,4 +8,6 @@
     <color name="colorAmber">#FFC107</color>
     <color name="colorDivider">#BDBDBD</color>
     <color name="colorTextWhite">#fff</color>
+    <color name="colorLightPrimary">#CFD8DC</color>
+    <color name="fondoList">#DFE3EE</color>
 </resources>

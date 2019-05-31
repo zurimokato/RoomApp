@@ -12,4 +12,13 @@
     <string name="detalle">Detalle</string>
     <string name="title_activity_maps">Map</string>
     <string name="reservar">Reservar</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellido">apellido</string>
+    <string name="email">email</string>
+    <string name="telefono">telefono</string>
+    <string name="fecha_llegada">Fecha llegada</string>
+    <string name="fechasalida">Fecha Salida</string>
+    <string name="reserva">Reserva</string>
+    <string name="ver_detalles">Ver detalles</string>
+    <string name="por_noche">/por noche</string>
 </resources>
