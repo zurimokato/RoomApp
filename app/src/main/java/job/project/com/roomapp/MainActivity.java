@@ -1,14 +1,19 @@
 package job.project.com.roomapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
@@ -27,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
 
     private RecycleRoomAdapter adapter;
     private RecyclerView recyclerView;
+    private ArrayList<Room>rooms;
+    JsonTask jsonTask;
 
 
 
@@ -43,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
             ConnectivityManager manager= (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
             NetworkInfo info=manager.getActiveNetworkInfo();
             if (info!=null &&info.isConnected()){
-                JsonTask jsonTask=new JsonTask(getApplicationContext(),recyclerView);
+                jsonTask=new JsonTask(getApplicationContext(),recyclerView);
                 jsonTask.execute(new URL("https://dl.dropbox.com/s/33g6niamgjdzp0x/room.json?dl=0"));
             }else{
                 Toast.makeText(getApplicationContext(), "Error de conexión", Toast.LENGTH_LONG).show();
@@ -55,11 +62,39 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater=getMenuInflater();
+        menuInflater.inflate(R.menu.menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()){
+            case R.id.map:
+                Intent intent=new Intent(getApplicationContext(),MapsActivity.class);
+                rooms=jsonTask.getList();
+                if (rooms!=null){
+                    intent.putParcelableArrayListExtra("Lista",rooms);
+                }
+
+                startActivity(intent);
+                return true;
+                default:
+                    return super.onOptionsItemSelected(item);
+        }
+
+
+    }
+
     public class JsonTask extends AsyncTask<URL, Void,List<Room>> {
         HttpURLConnection cont;
         private RecycleRoomAdapter adapter;
         private Context context;
         private  RecyclerView recyclerView;
+        private ArrayList<Room>rooms=null;
 
         public JsonTask(Context context, RecyclerView recyclerView) {
             this.context = context;
@@ -69,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected List<Room> doInBackground(URL... urls) {
-            ArrayList<Room>rooms=null;
+
             try {
                 cont=(HttpURLConnection)urls[0].openConnection();
                 cont.setConnectTimeout(15000);
@@ -93,6 +128,9 @@ public class MainActivity extends AppCompatActivity {
             return rooms;
         }
 
+        public ArrayList<Room> getList(){
+            return rooms;
+        }
 
         @Override
         protected void onPostExecute(List<Room> rooms) {

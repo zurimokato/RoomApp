@@ -2,13 +2,14 @@ package job.project.com.roomapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.squareup.picasso.Picasso;
 
@@ -36,7 +37,7 @@ public class Main2Activity extends AppCompatActivity {
 
         Intent intent=getIntent();
         room=intent.getParcelableExtra("room");
-        if (room!=null){
+        if (room==null){
             Toast.makeText(this, "Error al enviar la habitacion", Toast.LENGTH_SHORT).show();
         }else{
             titulo.setText(room.getTitulo());

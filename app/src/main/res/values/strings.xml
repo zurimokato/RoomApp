@@ -21,4 +21,15 @@
     <string name="reserva">Reserva</string>
     <string name="ver_detalles">Ver detalles</string>
     <string name="por_noche">/por noche</string>
+    <string name="buscar_mapa">Buscar Mapa</string>
+
+
+    <string name="formato_fecha">dd/mm/yyyy</string>
+    <string name="total_pagar">Total Pagar</string>
+    <string name="standar_cama_doble">Standar Cama Doble</string>
+    <string name="numero_de_noches">Numero de noches</string>
+    <string name="_2">2</string>
+    <string name="total">Total</string>
+    <string name="_8_00">$ 8.00</string>
+    <string name="pagar">Pagar</string>
 </resources>

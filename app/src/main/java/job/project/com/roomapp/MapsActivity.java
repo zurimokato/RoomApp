@@ -1,14 +1,21 @@
 package job.project.com.roomapp;
 
-import android.support.v4.app.FragmentActivity;
+import android.content.Intent;
 import android.os.Bundle;
+
+import androidx.fragment.app.FragmentActivity;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.util.ArrayList;
+
+import job.project.com.roomapp.pojo.Room;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -38,9 +45,36 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
+
+        final ArrayList<Room>rooms;
+
+        rooms=getIntent().getParcelableArrayListExtra("Lista");
+
+        if (rooms!=null){
+            for (Room r:rooms){
+                LatLng sydney = new LatLng(r.getUbicacion().getLatd(), r.getUbicacion().getLongi());
+                mMap.addMarker(new MarkerOptions().position(sydney).title(r.getTitulo()));
+            }
+        }
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                Intent intent =new Intent(getApplicationContext(),Main2Activity.class);
+                for (Room r: rooms){
+                    if (r.getTitulo().equals(marker.getTitle())){
+                        intent.putExtra("room",r);
+                    }
+                }
+                return false;
+            }
+        });
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(11.2226453,-74.2232032)));
+        mMap.setMinZoomPreference(10);
     }
+
+
+
 }
